@@ -1,31 +1,54 @@
-[include]
-  path = ~/.gitconfig.local
+[user] 
+  name = %NAME%
+  email = %EMAIL%
 
 [core]
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
-  whitespace = space-before-tab,tab-in-indent,trailing-space,tabwidth=2
+  whitespace = space-before-tab,tab-in-indent,trailing-space
+  tabwidth=2
   untrackedCache = true
-
-[apply]
-  whitespace = fix
-
-[push]
-  default = simple
-
-[merge]
-  log = true
+  preloadIndex = true
+  compression = 9
 
 [init]
 	defaultBranch = master
 
-[checkout]
-	defaultRemote = origin
+[advice]
+  addedEmptyPathSpec = false
+  pushNonFastForward = false
+  statusHints = false
 
-[color]
-  status = auto
-  diff = auto
-  branch = auto
-  interactive = auto
-  grep = auto
-  ui = auto
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+
+[push]
+  default = current
+  autoSetupRemote = true
+  followTags = true
+
+[pull]
+  default = current
+  rebase = true
+
+[rebase]
+  autoStash = true
+  missingCommitsCheck = warn
+
+[log]
+  abbrevCommit = true
+  graphColors = blue, yellow, cyan, magenta, green, red
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = -taggerdate
+
+[color "decorate"]
+  HEAD = red
+  branch = blue
+  tag = yellow
+  remoteBranch = magenta
