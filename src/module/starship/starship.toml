@@ -23,7 +23,7 @@ $terraform\
 [ ](fg:primary_950)\
 $fill\
 [ ](fg:primary_950)\
-$shell\
+[ ](bg:primary_950)\
 $cmd_duration\
 $status\
 [](fg:primary_700)\
