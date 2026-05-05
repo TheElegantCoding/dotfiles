@@ -22,8 +22,7 @@ $terraform\
 [](fg:primary_950 bg:primary_950)\
 [ ](fg:primary_950)\
 $fill\
-[ ](fg:primary_950)\
-[ ](bg:primary_950)\
+[ ](fg:primary_950)\
 $cmd_duration\
 $status\
 [](fg:primary_700)\
@@ -142,4 +141,4 @@ success_400 = '#4ADE80'
 danger_500 = '#EF4444'
 
 white = '#F9FAFB'
-gray = '#9CA3AF'
+gray = '#374151'
