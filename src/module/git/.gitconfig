@@ -6,7 +6,7 @@
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   whitespace = space-before-tab,tab-in-indent,trailing-space
-  tabwidth=2
+  tabwidth = 2
   untrackedCache = true
   preloadIndex = true
   compression = 9
