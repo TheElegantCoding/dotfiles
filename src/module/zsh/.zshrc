@@ -1,26 +1,9 @@
-export PATH="/ucrt64/bin:/usr/bin:$PATH"
-export PATH="$PATH:/c/Progra~1/starship/bin"
-export PATH="$PATH:/c/Progra~1/nodejs"
-export PATH="$PATH:/c/Progra~1/Git/cmd"
-export PATH="$PATH:/c/Users/luism/AppData/Local/pnpm"
-export PATH="$PATH:/c/Users/luism/.bun/bin"
-export PATH="$PATH:/c/ProgramData/chocolatey/lib/terraform/tools"
-export GEM_HOME="/home/luism/.local/share/gem/ruby/3.4.0"
-export PATH="/home/luism/.local/share/gem/ruby/3.4.0/bin:$PATH"
-
-alias ls='colorls --group-directories-first --almost-all'
-alias update="source ~/.zshrc"
-alias gd='git diff'
-alias ga='git add'
-alias gc='git commit'
-alias gp='git push'
-alias gu='git pull'
-alias gl='git log --all --graph --decorate --pretty="%C(cyan)%h %C(white) %an %ar%C(auto) %D%n%s%n"'
-alias gb='git branch'
-alias gi='git init'
-alias gcl='git clone'
+for file in ~/module/*.zsh; do
+  source "$file"
+done
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
 if [ ! -d "$ZINIT_HOME" ]; then
     mkdir -p "$(dirname "$ZINIT_HOME")"
     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
@@ -50,11 +33,6 @@ HISTSIZE=20000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 setopt appendhistory sharehistory hist_ignore_space hist_ignore_all_dups hist_save_no_dups
-
-bindkey '^D' kill-whole-line
-bindkey '^G' beginning-of-line
-bindkey '^K' end-of-line
-bindkey '^F' fzf-history-widget
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
