@@ -2,13 +2,12 @@
 info "Configuring user accounts and credentials..."
 echo ""
 
-while true; do
-  info_inline "Enter your username: "
-  read -p "" USER_NAME
+info_inline "Enter your username: "
+read -p "" USER_NAME
 
-  info "Enter the password for the new user (${USER_NAME}):"
+while true; do
+  info "Enter the password for the new user $BOLD${USER_NAME}$RESET:"
   read -s -p "Password: " USER_PASS
-  echo ""
 
   read -s -p "Confirm password: " USER_PASS_CONFIRM
   echo ""
@@ -24,7 +23,7 @@ done
 echo ""
 
 while true; do
-  info "Enter the password for the root user:"
+  info "Enter the password for the $BOLD(root)$RESET user:s"
   read -s -p "Root password: " ROOT_PASS
 
   read -s -p "Confirm root password: " ROOT_PASS_CONFIRM
