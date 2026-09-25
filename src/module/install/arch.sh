@@ -6,7 +6,6 @@ while true; do
   info_inline "Enter your username: "
   read -p "" USER_NAME
 
-  echo ""
   info "Enter the password for the new user (${USER_NAME}):"
   read -s -p "Password: " USER_PASS
   echo ""
@@ -27,7 +26,6 @@ echo ""
 while true; do
   info "Enter the password for the root user:"
   read -s -p "Root password: " ROOT_PASS
-  echo ""
 
   read -s -p "Confirm root password: " ROOT_PASS_CONFIRM
   echo ""
