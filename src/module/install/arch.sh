@@ -7,6 +7,7 @@ read -p "" USER_NAME
 while true; do
   info "Enter the password for the new user $BOLD${USER_NAME}$RESET:"
   read -s -p "Password: " USER_PASS
+  echo ""
 
   read -s -p "Confirm password: " USER_PASS_CONFIRM
   echo ""
@@ -19,11 +20,11 @@ while true; do
   echo ""
 done
 
-echo ""
 
 while true; do
-  info "Enter the password for the $BOLD(root)$RESET user:s"
+  info "Enter the password for the $BOLD(ROOT)$RESET user:"
   read -s -p "Root password: " ROOT_PASS
+  echo ""
 
   read -s -p "Confirm root password: " ROOT_PASS_CONFIRM
   echo ""
