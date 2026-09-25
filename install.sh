@@ -32,12 +32,14 @@ error() {
 
 echo ""
 info "Starting Arch Linux installation process..."
+sleep 0.5
 
 info "Disk available in the system:\n"
+sleep 0.5
 fdisk -l
 echo ""
 
-info_inline "Select the target disk for installation (ej. /dev/sda):"
+info_inline "Select the target disk for installation (ej. /dev/sda): "
 read -p "" TARGET_DISK
 
 if [ ! -b "$TARGET_DISK" ] && [ ! -e "$TARGET_DISK" ]; then
@@ -45,6 +47,7 @@ if [ ! -b "$TARGET_DISK" ] && [ ! -e "$TARGET_DISK" ]; then
 fi
 
 info "You have selected the disk: ${BOLD}${TARGET_DISK}${RESET}"
+sleep 0.5
 
 if [[ "$TARGET_DISK" =~ "nvme" ]]; then
   PART_EFI="${TARGET_DISK}p1"
@@ -59,18 +62,20 @@ else
 fi
 
 info "Configuring partition sizes..."
+sleep 0.5
 info "You can use formats like 1G, 512M, 50G, etc."
 
-info "Partition size for the EFI partition:"
+info "Partition size for the EFI partition (recommended 1G): "
 read -p "" EFI_SIZE
 
-info "Partition size for the Swap partition:"
+info "Partition size for the Swap partition (recommended 4G): "
 read -p "" SWAP_SIZE
 
-info "Partition size for the Root partition:"
+info "Partition size for the Root partition (recommended 64G): "
 read -p "" ROOT_SIZE
 
 info "Creating GPT partition table on ${TARGET_DISK}..."
+sleep 0.5
 
 sfdisk "${TARGET_DISK}" <<EOF
 label: gpt
@@ -83,15 +88,17 @@ EOF
 success "Partitions created successfully."
 
 info "Formatting partitions..."
+sleep 0.5
 
 mkfs.ext4 "$PART_ROOT" || error "Failed to format Root."
 mkfs.ext4 "$PART_HOME" || error "Failed to format Home."
 mkfs.fat -F 32 "$PART_EFI" || error "Failed to format EFI."
 mkswap "$PART_SWAP" || error "Failed to configure Swap."
 
-success "Particiones formateadas con éxito."
+success "Partitions formatted successfully."
 
-info "Montando particiones en /mnt..."
+info "Mounting partitions on /mnt..."
+sleep 0.5
 
 mount "$PART_ROOT" /mnt || error "Failed to mount Root."
 mkdir -p /mnt/boot /mnt/home || error "Failed to create mount points."
