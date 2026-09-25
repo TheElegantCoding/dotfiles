@@ -9,3 +9,4 @@ source "$DIR/src/module/install/base.sh"
 source "$DIR/src/module/install/arch.sh"
 
 success "Arch installation completed successfully."
+info "You can now reboot the system with: umount -R /mnt && reboot"
