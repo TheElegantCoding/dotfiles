@@ -1,6 +1,11 @@
 # Todo
 
-[ ] Better keybindings for vscode
-[ ] Add more wallpapers
-[ ] Delete bad wallpaper
-[ ] Create installation script
+## Essential packages
+
+- git
+- base-devel
+- hyprland
+- kitty
+- ttf-cascadia-code-nerd
+
+- yay
