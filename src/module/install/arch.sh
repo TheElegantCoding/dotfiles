@@ -1,6 +1,5 @@
 #!/bin/bash
 info "Configuring user accounts and credentials..."
-echo ""
 
 info_inline "Enter your username: "
 read -p "" USER_NAME
