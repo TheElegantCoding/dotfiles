@@ -18,7 +18,6 @@ fi
 info "You have selected the disk: ${BOLD}${TARGET_DISK}${RESET}"
 sleep 0.5
 
-echo ""
 warning "This will erase all data on ${TARGET_DISK}"
 info_inline "Are you sure you want to format and partition this disk? (y/N): "
 read -p "" CONFIRM
