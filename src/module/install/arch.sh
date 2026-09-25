@@ -1,8 +1,13 @@
 #!/bin/bash
 info "Configuring user accounts and credentials..."
 
+info_inline "Enter your computer hostname [archlinux]: "
+read -p "" HOST_NAME
+HOST_NAME="${HOST_NAME:-archlinux}"
+
 info_inline "Enter your username: "
 read -p "" USER_NAME
+USER_NAME="${USER_NAME:-user}"
 
 while true; do
   info "Enter the password for the new user $BOLD${USER_NAME}$RESET:"
@@ -51,7 +56,7 @@ sed -i "s/#en_US ISO-8859-1/en_US ISO-8859-1/" /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
-echo "${USER_NAME}" > /etc/hostname
+echo "$HOST_NAME" > /etc/hostname
 systemctl enable NetworkManager
 
 echo "root:${ROOT_PASS}" | chpasswd
