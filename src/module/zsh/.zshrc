@@ -1,4 +1,5 @@
-source "./aliases.zsh"
+source "$HOME/.config/zsh/aliases.zsh"
+source "$HOME/.config/zsh/keybinding.zsh"
 
 # for file in ~/*.zsh; do
 #   source "$file"
