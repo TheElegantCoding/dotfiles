@@ -14,6 +14,7 @@ setopt NUMERIC_GLOB_SORT
 
 autoload -Uz compinit
 
+compdef eza=ls
 compinit -d "$XDG_STATE_HOME/zsh/zcompdump"
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
