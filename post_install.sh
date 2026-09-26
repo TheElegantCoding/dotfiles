@@ -30,3 +30,11 @@ for module in "$DOTFILES_DIR"/*; do
 done
 
 success "All dotfiles have been linked successfully."
+
+info "Configurando Zsh..."
+
+if [ -d "$CONFIG_DIR/zsh" ]; then
+  rm -f "$HOME/.zshrc"
+  echo "export ZDOTDIR=\"$CONFIG_DIR/zsh\"" > "$HOME/.zshrc"
+  success "Creado archivo ~/.zshrc apuntando a ~/.config/zsh"
+fi
