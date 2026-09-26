@@ -1,4 +1,4 @@
 bindkey '^D' kill-whole-line
-bindkey '^G' beginning-of-line
-bindkey '^K' end-of-line
+bindkey '^L' beginning-of-line
+bindkey '^H' end-of-line
 bindkey '^F' fzf-history-widget
