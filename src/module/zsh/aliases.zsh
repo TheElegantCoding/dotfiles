@@ -1,5 +1,5 @@
 # alias ls='colorls --group-directories-first --almost-all'
-alias update="source ~/.zshrc"
+alias update="source ~/zsh/.zshrc"
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
