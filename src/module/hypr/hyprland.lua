@@ -1,5 +1,5 @@
 require("monitor")
-require("programs")
+require("program")
 require("autostart")
 require("env")
 require("style")
