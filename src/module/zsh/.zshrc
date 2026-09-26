@@ -28,6 +28,11 @@ zstyle ':fzf-tab:*' fzf-command fzf
 zstyle ':fzf-tab:*' shell '/usr/bin/zsh'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
 
+if [[ -f "/usr/share/fzf/key-bindings.zsh" ]]; then
+  source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+fi
+
 eval "$(starship init zsh)"
 
 # for file in ~/*.zsh; do
