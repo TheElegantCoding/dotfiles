@@ -1,5 +1,12 @@
-# alias ls='colorls --group-directories-first --almost-all'
-alias update="source ~/zsh/.zshrc"
+alias ls='eza --icons'
+alias ll='eza -lh --icons --git'
+alias la='eza -lha --icons --git'
+alias tree='eza --tree --icons'
+
+compdef eza=ls
+
+alias update="source ~/.config/zsh/.zshrc"
+
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
