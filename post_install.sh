@@ -33,6 +33,16 @@ success "All dotfiles have been linked successfully."
 
 info "Configuring Zsh..."
 
+# update /etc/zsh/zshenv to point to the new ZDOTDIR
+
+# if [[ -d "$HOME/.config/zsh" ]]
+# then
+#   export ZDOTDIR="$HOME/.config/zsh"
+# fi
+
+# mkdir -p "$HOME/.local/state/zsh"
+# mkdir -p "$HOME/.cache/zsh"
+
 if [ -d "$CONFIG_DIR/zsh" ]; then
   rm -f "$HOME/.zshenv"
   echo "export ZDOTDIR=\"$CONFIG_DIR/zsh\"" > "$HOME/.zshenv"
