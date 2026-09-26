@@ -1,6 +1,8 @@
 source "$HOME/.config/zsh/aliases.zsh"
 source "$HOME/.config/zsh/keybinding.zsh"
 
+eval "$(starship init zsh)"
+
 # for file in ~/*.zsh; do
 #   source "$file"
 # done
