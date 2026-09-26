@@ -4,7 +4,7 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$DIR/src/module/install/lib.sh"
 
-DOTFILES_DIR="$HOME/projects/dotfiles/src/module"
+DOTFILES_DIR="$HOME/project/dotfiles/src/module"
 CONFIG_DIR="$HOME/.config"
 
 info "Initializing dotfiles from $DOTFILES_DIR..."
