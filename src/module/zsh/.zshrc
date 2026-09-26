@@ -1,6 +1,8 @@
 source "$HOME/.config/zsh/aliases.zsh"
 source "$HOME/.config/zsh/keybinding.zsh"
 
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
 eval "$(starship init zsh)"
 
 # for file in ~/*.zsh; do
