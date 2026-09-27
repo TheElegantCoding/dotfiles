@@ -21,6 +21,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --tree --icons --color=always -L 2 $realpath'
 zstyle ':fzf-tab:*' fzf-command fzf
 zstyle ':fzf-tab:*' shell '/usr/bin/zsh'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
