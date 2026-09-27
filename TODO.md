@@ -13,7 +13,9 @@ Pacman
   - fzf
 - ttf-cascadia-code-nerd
 - xorg-xcursorgen
+- imagemagick
 - unzip
+- firefox
 
 Curl install
 
