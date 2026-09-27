@@ -6,6 +6,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+export BUN_INSTALL="$HOME/.bun"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 export GPG_TTY=$(tty)
