@@ -26,3 +26,4 @@ zplugin_update() {
 
 zplugin_load "zsh-users" "zsh-autosuggestions"
 zplugin_load "zsh-users" "zsh-syntax-highlighting"
+zplugin_load "Alofax" "fzf-tab"
