@@ -7,6 +7,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+export BAT_THEME="TwoDark"
 
 export GPG_TTY=$(tty)
 
