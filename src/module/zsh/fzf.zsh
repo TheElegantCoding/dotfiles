@@ -16,17 +16,15 @@ _fzf_file_no_hidden() {
   zle reset-prompt
 }
 
-fzf_preview() {
-  if [ -d "$1" ]; then
-    eza --tree --icons --color=always -L 2 "$1"
-  elif [ -f "$1" ]; then
-    bat --style=numbers --color=always --line-range :500 "$1"
-  else
-    echo "Cannot preview $1"
-  fi
-}
-
 zle -N _fzf_file_no_hidden
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --preview "fzf_preview {}"'
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --preview '\''
+  if [ -d {} ]; then
+    eza --tree --icons --color=always -L 2 {};
+  elif [ -f {} ]; then
+    bat --style=numbers --color=always --line-range :500 {};
+  else
+    echo "Cannot preview {}";
+  fi
+'\'''
