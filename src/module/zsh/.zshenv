@@ -11,4 +11,4 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 
 export GPG_TTY=$(tty)
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$PATH"
