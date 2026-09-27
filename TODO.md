@@ -9,6 +9,7 @@ Pacman
 - hyprland
 - zsh
   - zoxide
+  - bat
   - fzf
 - ttf-cascadia-code-nerd
 
