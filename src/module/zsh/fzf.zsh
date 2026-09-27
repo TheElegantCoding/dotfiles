@@ -26,8 +26,7 @@ fzf_preview() {
   fi
 }
 
+zle -N _fzf_file_no_hidden
+
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --preview "fzf_preview {}"'
-
-
-zle -N _fzf_file_no_hidden
