@@ -12,11 +12,14 @@ Pacman
   - bat
   - fzf
 - ttf-cascadia-code-nerd
+- xorg-xcursorgen
+- unzip
 
 Curl install
 
 - kitty
 - starship
+- bun
 
 Manual install
 
