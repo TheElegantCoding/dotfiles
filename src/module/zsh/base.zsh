@@ -18,7 +18,7 @@ compinit -d "$XDG_STATE_HOME/zsh/zcompdump"
 compdef eza=ls
 
 zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --tree --icons --color=always -L 2 $realpath'
