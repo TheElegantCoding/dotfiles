@@ -17,9 +17,10 @@ autoload -Uz compinit
 compinit -d "$XDG_STATE_HOME/zsh/zcompdump"
 compdef eza=ls
 
+zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' menu no
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':fzf-tab:*' fzf-command fzf
 zstyle ':fzf-tab:*' shell '/usr/bin/zsh'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1 --color=always $realpath'
