@@ -2,7 +2,7 @@
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-source "$DIR/src/module/install/lib.sh"
+source "$DIR/src/global/util/logger.sh"
 
 DOTFILES_DIR="$HOME/project/dotfiles/src/module"
 CONFIG_DIR="$HOME/.config"
