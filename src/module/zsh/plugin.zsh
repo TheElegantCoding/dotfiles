@@ -1,6 +1,6 @@
 source "$HOME/project/dotfiles/src/global/util/logger.sh"
 
-ZPLUGINDIR="${ZDOTDIR:-$HOME/.config/zsh}/plugins"
+ZPLUGINDIR="$HOME/.config/zsh/plugins"
 
 zplugin_load() {
   local plugin_path="$ZPLUGINDIR/$2"
