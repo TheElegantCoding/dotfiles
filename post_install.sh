@@ -19,9 +19,6 @@ for module in "$DOTFILES_DIR"/*; do
     if [ -L "$target" ]; then
       info "Updating: $name"
       rm "$target"
-    elif [ -e "$target" ]; then
-      warning "$target already exists and is not a symlink. Backing it up to ${target}.bak"
-      mv "$target" "${target}.bak"
     fi
 
     ln -s "$module" "$target"
@@ -34,4 +31,23 @@ success "All dotfiles have been linked successfully."
 info "Configuring Zsh..."
 
 # update /etc/zshenv to point to the new ZDOTDIR
-# ZDOTDIR="$HOME/.config/zsh"
+# echo 'export ZDOTDIR="$HOME/.config/zsh"' | sudo tee -a /etc/zsh/zshenv
+
+info "Installint aditional packages."
+
+# git clone https://aur.archlinux.org/yay.git
+# cd yay
+# makepkg -si
+# cd..
+
+# pacman -S git base-devel hyprland github-cli kitty pipewire pipewire-pulse wireplumber pipewire-alsa gnome-keyring libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd xorg-xcursorgen unzip firefox
+# yay -S visual-studio-code-bin
+
+# systemctl --user enable --now pipewire.socket
+# systemctl --user enable --now pipewire-pulse.socket
+# systemctl --user enable --now wireplumber.service
+# systemctl --user enable --now rtkit-daemon
+
+# Login with github is
+#
+# gh auth login
