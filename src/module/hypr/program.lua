@@ -1,3 +1,3 @@
-terminal    = "konsole"
+terminal    = "kitty"
 fileManager = "dolphin"
 menu        = "hyprlauncher"
