@@ -129,6 +129,9 @@ format = "[ $duration ](fg:white bg:primary_950)"
 
 [palettes.starship]
 primary_950 = '#192152'
+primary_700 = '#2442d1'
+primary_600 = '#3059e4'
+primary_500 = '#4275ef'
 primary_300 = '#97bdf9'
 
 success_400 = '#4ADE80'
