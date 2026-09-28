@@ -1,6 +1,6 @@
 [user] 
-  name = %NAME%
-  email = %EMAIL%
+  name = Luis Monsalve
+  email = luismonsalve1941@gmail.com
 
 [core]
   excludesfile = ~/.gitignore
