@@ -5,8 +5,8 @@
 -- Refer to https://wiki.hypr.land/configuring/core/config-options/
 hl.config({
   general = {
-    gaps_in  = 5,
-    gaps_out = 20,
+    gaps_in  = 4,
+    gaps_out = 12,
     border_size = 2,
     col = {
       active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
@@ -17,8 +17,8 @@ hl.config({
     layout = "dwindle",
   },
   decoration = {
-    rounding        = 10,
-    rounding_power = 2,
+    rounding        = 6,
+    rounding_power = 10,
     active_opacity   = 1.0,
     inactive_opacity = 1.0,
     shadow = {
