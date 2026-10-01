@@ -52,5 +52,8 @@
   },
   "[yaml]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "Lua.diagnostics.globals": [
+    "hl"
+  ]
 }
