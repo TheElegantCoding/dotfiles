@@ -40,7 +40,7 @@ info "Installint aditional packages."
 # makepkg -si
 # cd..
 
-# pacman -S git base-devel hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa gnome-keyring libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd xorg-xcursorgen unzip firefox
+# pacman -S git base-devel hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl gnome-keyring libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd xorg-xcursorgen unzip firefox
 # yay -S visual-studio-code-bin
 
 # systemctl --user enable --now pipewire.socket
