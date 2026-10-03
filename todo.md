@@ -1,7 +1,7 @@
 # Todo
 
 - [ ] Make an auto installation of my packages and configurations
-- [ ] fix starship problem in some directories
+- [x] fix starship problem in some directories
 - [ ] automate the github auth and name and email setup in gitconfig
 - [ ] setup git config folder correctly with all files
 - [ ] Hyperland lock screen and keybinding
