@@ -7,7 +7,7 @@ alias update='source ~/.config/zsh/.zshrc'
 alias project='cd ~/project'
 alias config='cd ~/.config'
 alias dotfiles='cd ~/project/dotfiles'
-alias nvimConfig='cd ~/project/dotfiles/nvim'
+alias nvimConfig='cd ~/project/dotfiles/src/module/nvim'
 
 alias gd='git diff'
 alias ga='git add'
