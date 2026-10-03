@@ -1,11 +1,11 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+'$schema' = 'https://starship.rs/config-schema.json'
 
 add_newline = true
 palette = 'starship'
 scan_timeout = 10
 
 format = """
-[╭╴](fg:gray)\
+[╭╴](fg:gray_600)\
 $os\
 $directory\
 [](fg:primary_950 bg:primary_700)\
@@ -19,21 +19,21 @@ $golang\
 $rust\
 $lua\
 $terraform\
-[](fg:primary_950 bg:primary_950)\
-[ ](fg:primary_950)\
+[](fg:primary_950 bg:primary_700)\
+[  ](fg:primary_700)\
 $fill\
 [ ](fg:primary_950)\
 $cmd_duration\
 $status\
 [](fg:primary_700)\
-[](fg:gray)[ ]()
-[╰╴❯](fg:gray)[ ]()"""
+[](fg:gray_600)[ ]()
+[╰╴❯](fg:gray_600)[ ]()"""
 
 [line_break]
 disabled = true
 
 [fill]
-style = 'gray'
+style = 'gray_600'
 symbol = '─'
 
 [os]
@@ -45,24 +45,24 @@ format = '[](primary_700)[ ]($style)[](fg:primary_700 bg:primary_950)'
 truncation_length = 1
 style = 'bold bg:primary_950 fg:white'
 format = '[$path]($style)'
-truncation_symbol = "   ~/../"
+truncation_symbol = '   ~/../'
 repo_root_style = 'bold bg:primary_950 fg:white'
-repo_root_format = '[  $repo_root ]($style)'
+repo_root_format = '[  $repo_root]($style)'
 
 [directory.substitutions]
-"~/project" = " 󱌢 Project "
-"~/Documents" = " 󰈙 Documents "
-"~/Downloads" = "   Downloads "
-"~/Music" = "   Music "
-"~/Pictures" = "   Pictures "
-"~/Videos" = "   Videos "
-"~/GitHub" = "  GitHub "
-"~/.config" = "   Config "
-"~" = " 󰣇 ~ "
+'~/project' = ' 󱌢 Project '
+'~/Documents' = ' 󰈙 Documents '
+'~/Downloads' = '   Downloads '
+'~/Music' = '   Music '
+'~/Pictures' = '   Pictures '
+'~/Videos' = '   Videos '
+'~/GitHub' = '  GitHub '
+'~/.config' = '   Config '
+'~' = ' 󰣇 ~ '
 
 [git_branch]
-symbol = ""
-style = "bold fg:success_400 bg:primary_700"
+symbol = ''
+style = 'bold fg:success_400 bg:primary_700'
 format = '[ $symbol $branch(:$remote_branch) ]($style)'
 
 [git_commit]
@@ -74,58 +74,58 @@ format = '[$hash]($style)'
 
 [bun]
 symbol = ''
-style = "bold fg:white bg:primary_950"
-version_format = "v${major}.${minor}"
+style = 'bold fg:white bg:primary_950'
+version_format = 'v${major}.${minor}'
 format = '[ $symbol $version]($style)'
 
 [dart]
 symbol = ''
-style = "bold fg:primary_300 bg:primary_950"
-version_format = "v${major}.${minor}"
+style = 'bold fg:primary_300 bg:primary_950'
+version_format = 'v${major}.${minor}'
 format = '[ $symbol $version]($style)'
 
 [golang]
-symbol = ""
-style = "bold fg:primary_300 bg:primary_950"
-version_format = "v${major}.${minor}"
+symbol = ''
+style = 'bold fg:primary_300 bg:primary_950'
+version_format = 'v${major}.${minor}'
 format = '[ $symbol $version]($style)'
 
 [lua]
-symbol = ""
-style = "bold fg:#c084fc bg:primary_950"
-version_format = "v${major}.${minor}"
+symbol = ''
+style = 'bold fg:#c084fc bg:primary_950'
+version_format = 'v${major}.${minor}'
 format = '[ $symbol $version]($style)'
 
 [rust]
-symbol = ""
-style = "bold fg:#fb923c bg:primary_950"
-version_format = "v${major}.${minor}"
+symbol = ''
+style = 'bold fg:#fb923c bg:primary_950'
+version_format = 'v${major}.${minor}'
 format = '[ $symbol $version]($style)'
 
 [terraform]
-symbol = ""
-style = "bold fg:#c084fc bg:primary_950"
-version_format = "v${major}.${minor}"
+symbol = ''
+style = 'bold fg:#c084fc bg:primary_950'
+version_format = 'v${major}.${minor}'
 format = '[ $symbol $version]($style)'
 
 [nodejs]
-symbol = ""
-style = "bold fg:#4ade80 bg:primary_950"
-version_format = "v${major}.${minor}"
+symbol = ''
+style = 'bold fg:#4ade80 bg:primary_950'
+version_format = 'v${major}.${minor}'
 format = '[ $symbol $version]($style)'
 detect_extensions = [ ]
 
 [status]
 disabled = false
 style = 'bold bg:primary_950 fg:white'
-success_symbol = "[  ](fg:success_400 bg:primary_700)"
-symbol = "[  ](fg:danger_500 bg:primary_700)"
+success_symbol = '[  ](fg:success_400 bg:primary_700)'
+symbol = '[  ](fg:danger_500 bg:primary_700)'
 format = '[](fg:primary_700 bg:primary_950)[$symbol]($style)'
 
 [cmd_duration]
 min_time = 0
 show_milliseconds = true
-format = "[ $duration ](fg:white bg:primary_950)"
+format = '[ $duration ](fg:white bg:primary_950)'
 
 [palettes.starship]
 primary_950 = '#192152'
@@ -138,5 +138,6 @@ success_400 = '#4ADE80'
 
 danger_500 = '#EF4444'
 
+gray_600 = '#6a7282'
+
 white = '#F9FAFB'
-gray = '#9ca3af'
