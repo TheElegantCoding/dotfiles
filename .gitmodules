@@ -1,0 +1,3 @@
+[submodule "/home/Luisda/project/dotfiles/src/module/nvim"]
+	path = /home/Luisda/project/dotfiles/src/module/nvim
+	url = https://github.com/TheElegantCoding/nvim.git
