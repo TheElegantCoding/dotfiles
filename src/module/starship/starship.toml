@@ -76,43 +76,43 @@ format = '[$hash]($style)'
 symbol = ''
 style = 'bold fg:white bg:primary_950'
 version_format = 'v${major}.${minor}'
-format = '[ $symbol $version]($style)'
+format = '[ $symbol $version ]($style)'
 
 [dart]
 symbol = ''
 style = 'bold fg:primary_300 bg:primary_950'
 version_format = 'v${major}.${minor}'
-format = '[ $symbol $version]($style)'
+format = '[ $symbol $version ]($style)'
 
 [golang]
 symbol = ''
 style = 'bold fg:primary_300 bg:primary_950'
 version_format = 'v${major}.${minor}'
-format = '[ $symbol $version]($style)'
+format = '[ $symbol $version ]($style)'
 
 [lua]
 symbol = ''
 style = 'bold fg:#c084fc bg:primary_950'
 version_format = 'v${major}.${minor}'
-format = '[ $symbol $version]($style)'
+format = '[ $symbol $version ]($style)'
 
 [rust]
 symbol = ''
 style = 'bold fg:#fb923c bg:primary_950'
 version_format = 'v${major}.${minor}'
-format = '[ $symbol $version]($style)'
+format = '[ $symbol $version ]($style)'
 
 [terraform]
 symbol = ''
 style = 'bold fg:#c084fc bg:primary_950'
 version_format = 'v${major}.${minor}'
-format = '[ $symbol $version]($style)'
+format = '[ $symbol $version ]($style)'
 
 [nodejs]
 symbol = ''
 style = 'bold fg:#4ade80 bg:primary_950'
 version_format = 'v${major}.${minor}'
-format = '[ $symbol $version]($style)'
+format = '[ $symbol $version ]($style)'
 detect_extensions = [ ]
 
 [status]
