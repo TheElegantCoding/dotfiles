@@ -9,6 +9,8 @@ alias config='cd ~/.config'
 alias dotfiles='cd ~/project/dotfiles'
 alias nvimConfig='cd ~/project/dotfiles/src/module/nvim'
 
+alias neovide="nohup neovide > /dev/null 2>&1 &"
+
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
