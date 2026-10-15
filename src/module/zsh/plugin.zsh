@@ -24,6 +24,4 @@ zplugin_update() {
   done
 }
 
-zplugin_load "zsh-users" "zsh-autosuggestions"
 zplugin_load "zsh-users" "zsh-syntax-highlighting"
-zplugin_load "aloxaf" "fzf-tab"

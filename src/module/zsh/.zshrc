@@ -1,9 +1,13 @@
 source "$HOME/.config/zsh/aliases.zsh"
 source "$HOME/.config/zsh/keybinding.zsh"
 source "$HOME/.config/zsh/base.zsh"
-source "$HOME/.config/zsh/fzf.zsh"
 source "$HOME/.config/zsh/plugin.zsh"
 
-eval "$(zoxide init zsh)"
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+  "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+  zle -N zle-keymap-select "";
+fi
+
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 eval "$(iris init zsh)"
