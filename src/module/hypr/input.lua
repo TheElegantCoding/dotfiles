@@ -18,3 +18,15 @@ hl.device({
 	sensitivity = 0.1,
 	accel_profile = 'flat',
 })
+
+hl.device({
+	name = '2.4g-dongle-1',
+	sensitivity = 0.1,
+	accel_profile = 'flat',
+})
+
+hl.device({
+	name = '2.4g-dongle-3',
+	sensitivity = 0.1,
+	accel_profile = 'flat',
+})
