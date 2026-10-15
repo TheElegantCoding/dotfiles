@@ -1,6 +1,6 @@
 [core]
 version = 1
-shell = "auto-detect"
+shell = ""
 shell-login = false
 mode = "last"
 debug = false
