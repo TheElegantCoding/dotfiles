@@ -6,3 +6,4 @@ source "$HOME/.config/zsh/plugin.zsh"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(iris init zsh)"
