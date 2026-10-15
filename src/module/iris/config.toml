@@ -1,0 +1,42 @@
+[core]
+version = 1
+shell = "auto-detect"
+shell-login = false
+mode = "last"
+debug = false
+expand-alias = true
+auto-execute = false
+atuin-history = 0
+atuin-db-path = ""
+cobra-probe-enabled = true
+navigate-closed = "history"
+
+[ui]
+style = "modern"
+ghost-text = 1
+hidden-files = true
+max-suggestions = 100
+max-height = 6
+max-width = 0
+nerd-fonts = true
+
+[keybindings]
+toggle-mode = "ctrl+r"
+toggle-menu = "shift+space"
+select = "tab"
+navigate-up = "up"
+navigate-down = "down"
+navigate-right = "right"
+
+[git]
+filter-active-branch = true
+deduplicate-branches = true
+
+[updater]
+check-on-startup = false
+channel = "stable"
+check-interval = "24h"
+auto-update = 0
+
+[zoxide]
+extend-cd = true
