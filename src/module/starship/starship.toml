@@ -47,7 +47,7 @@ style = 'bold bg:primary_950 fg:white'
 format = '[$path]($style)'
 truncation_symbol = '   ~/../'
 repo_root_style = 'bold bg:primary_950 fg:white'
-repo_root_format = '[  $repo_root]($style)'
+repo_root_format = '[  $repo_root ]($style)'
 
 [directory.substitutions]
 '~/project' = ' 󱌢 Project '
