@@ -8,6 +8,10 @@ if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
   zle -N zle-keymap-select "";
 fi
 
+if uwsm check may-start && uwsm select; then
+	exec uwsm start default
+fi
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(iris init zsh)"
