@@ -7,6 +7,7 @@ source "$DIR/src/global/util/logger.sh"
 DOTFILES_DIR="$HOME/project/dotfiles/src/module"
 ASSET_DIR="$HOME/project/dotfiles/src/global/asset/"
 CONFIG_DIR="$HOME/.config"
+ETC_MODULES=("keyd")
 
 info "Initializing dotfiles from $DOTFILES_DIR..."
 
@@ -17,10 +18,21 @@ for module in "$DOTFILES_DIR"/*; do
     name=$(basename "$module")
     target="$CONFIG_DIR/$name"
 
-    if [ "$name" = "keyd" ]; then
-      sudo mkdir -p /etc/keyd
-      sudo ln -sf "$module/default.conf" /etc/keyd/default.conf
-      sudo keyd reload
+    if [[ " ${ETC_MODULES[*]} " =~ " ${name} " ]]; then
+      info "Linking root module: $name -> /etc/$name"
+      sudo mkdir -p "/etc/$name"
+
+      for file in "$module"/*; do
+        if [ -f "$file" ]; then
+          filename=$(basename "$file")
+          sudo ln -sf "$file" "/etc/$name/$filename"
+        fi
+      done
+
+      if [ "$name" = "keyd" ]; then
+        sudo keyd reload 2>/dev/null || true
+      fi
+
     else
       [ -L "$target" ] && rm "$target"
       ln -s "$module" "$target"
@@ -43,9 +55,10 @@ info "Installint aditional packages."
 # makepkg -si
 # cd..
 
-# pacman -S git base-devel vlc noto-fonts noto-fonts-cjk noto-fonts-extra tf-nerd-fonts-symbols ttf-cascadia-mono-nerd rust imagemagick tree-sitter-cli hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl neovide gnome-keyring keyd libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd noto-fonts-emoji xorg-xcursorgen unzip firefox stylua greetd greetd-regreet
+# pacman -S git base-devel vlc noto-fonts noto-fonts-cjk noto-fonts-extra tf-nerd-fonts-symbols ttf-cascadia-mono-nerd rust imagemagick tree-sitter-cli hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl neovide gnome-keyring keyd libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd noto-fonts-emoji xorg-xcursorgen unzip firefox stylua uwsm libnewt quickshell
 # bun i -g oxlint
 # yay -S visual-studio-code-bin iris-autocomplete
+# sudo ln -s ~/project/dotfiles/src/module/sddm/theme /usr/share/sddm/themes/theme
 
 # systemctl --user enable --now pipewire.socket
 # systemctl --user enable --now pipewire-pulse.socket
