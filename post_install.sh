@@ -55,7 +55,7 @@ info "Installint aditional packages."
 # makepkg -si
 # cd..
 
-# pacman -S git base-devel vlc noto-fonts noto-fonts-cjk noto-fonts-extra tf-nerd-fonts-symbols ttf-cascadia-mono-nerd rust imagemagick tree-sitter-cli hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl neovide gnome-keyring keyd libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd noto-fonts-emoji xorg-xcursorgen unzip firefox stylua uwsm libnewt quickshell
+# pacman -S git base-devel vlc noto-fonts noto-fonts-cjk noto-fonts-extra tf-nerd-fonts-symbols ttf-cascadia-mono-nerd rust imagemagick tree-sitter-cli hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl neovide gnome-keyring keyd libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd noto-fonts-emoji xorg-xcursorgen unzip firefox stylua uwsm libnewt quickshell bluez bluez-utils terraform
 # bun i -g oxlint
 # yay -S visual-studio-code-bin iris-autocomplete
 # sudo ln -s ~/project/dotfiles/src/module/sddm/theme /usr/share/sddm/themes/theme
