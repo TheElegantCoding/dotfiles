@@ -8,7 +8,6 @@ PanelWindow {
   id: mainWindow
   implicitWidth: 800
   implicitHeight: 600
-  visible: true
   color: "transparent"
 
   Item {
