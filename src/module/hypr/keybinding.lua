@@ -9,6 +9,7 @@ hl.bind(
 	hl.dsp.exec_cmd(menu .. ' --show drun'),
 	{ description = 'Launch application menu' }
 )
+hl.bind(mainMod .. ' + Q', hl.dsp.exec_cmd('pkill quickshell || quickshell'), { description = 'Toggle Quickshell' })
 hl.bind(mainMod .. ' + B', hl.dsp.exec_cmd(browser), { description = 'Launch browser' })
 hl.bind(mainMod .. ' + E', hl.dsp.exec_cmd(fileManager), { description = 'Launch file manager' })
 -- Notes SUPER + N
