@@ -1,0 +1,9 @@
+[SddmTheme]
+Name=Custom theme
+Description=Testing custom theme
+Author=Luis
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=custom-theme
