@@ -70,7 +70,7 @@ tag_disabled = true
 only_detached = false
 style = 'bold fg:white bg:primary_700'
 commit_hash_length = 4
-format = '[$hash]($style)'
+format = '[$hash ]($style)'
 
 [bun]
 symbol = ''
