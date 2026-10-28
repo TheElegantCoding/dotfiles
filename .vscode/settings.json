@@ -11,4 +11,5 @@
   "js/ts.format.placeOpenBraceOnNewLineForControlBlocks": true,
   "js/ts.format.placeOpenBraceOnNewLineForFunctions": true,
   "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "stylua.targetReleaseVersion": "latest",
 }
