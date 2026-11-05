@@ -43,6 +43,8 @@ done
 
 success "All dotfiles have been linked successfully."
 
+# timedatectl set-ntp true
+
 info "Configuring Zsh..."
 
 # update /etc/zshenv to point to the new ZDOTDIR
@@ -55,7 +57,7 @@ info "Installint aditional packages."
 # makepkg -si
 # cd..
 
-# pacman -S git base-devel vlc noto-fonts noto-fonts-cjk noto-fonts-extra tf-nerd-fonts-symbols ttf-cascadia-mono-nerd rust imagemagick tree-sitter-cli hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl neovide gnome-keyring keyd libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd noto-fonts-emoji xorg-xcursorgen unzip firefox stylua uwsm libnewt quickshell bluez bluez-utils terraform wget
+# pacman -S git base-devel vlc noto-fonts noto-fonts-cjk noto-fonts-extra tf-nerd-fonts-symbols ttf-cascadia-mono-nerd rust imagemagick tree-sitter-cli hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl neovide gnome-keyring libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd noto-fonts-emoji xorg-xcursorgen unzip firefox stylua uwsm libnewt quickshell bluez bluez-utils terraform wget lazygit
 # yay -S visual-studio-code-bin iris-autocomplete
 # bun i -g oxlint oxfmt
 # sudo ln -s ~/project/dotfiles/src/module/sddm/theme /usr/share/sddm/themes/theme
@@ -64,7 +66,7 @@ info "Installint aditional packages."
 # systemctl --user enable --now pipewire-pulse.socket
 # systemctl --user enable --now wireplumber.service
 # systemctl --user enable --now rtkit-daemon
-# systemctl enable --now keyd
+# systemctl enable --now bluetooth.service
 
 # Login with github is
 #
