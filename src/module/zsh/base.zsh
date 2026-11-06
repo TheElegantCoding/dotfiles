@@ -1,26 +1,16 @@
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
-HISTFILE="$XDG_STATE_HOME/zsh/history"
+HISTFILE="$state_dir/history"
 
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_SAVE_NO_DUPS
-
-setopt AUTOCD
-setopt NUMERIC_GLOB_SORT
+setopt SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE
+setopt AUTOCD NUMERIC_GLOB_SORT
 
 autoload -Uz compinit
-
-compinit -d "$XDG_STATE_HOME/zsh/zcompdump"
-compdef eza=ls
+compinit -d "$state_dir/zcompdump"
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --tree --icons --color=always -L 2 $realpath'
-zstyle ':fzf-tab:*' fzf-command fzf
-zstyle ':fzf-tab:*' shell '/usr/bin/zsh'
