@@ -1,1 +1,13 @@
+# System files
+.DS_Store
+
+# Plugins
 /zsh/plugins/*
+
+# Environment files
+.env
+.env.*
+!*.example
+
+# Logs
+*.log
