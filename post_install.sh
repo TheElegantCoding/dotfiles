@@ -1,94 +1,104 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s nullglob
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$DIR/src/global/util/logger.sh"
 
-DOTFILES_DIR="$HOME/project/dotfiles/src/module"
-ASSET_DIR="$HOME/project/dotfiles/src/global/asset/"
-CONFIG_DIR="$HOME/.config"
-ETC_MODULES=("keyd")
+readonly GLOBAL_DIR="$DIR/src/global"
+readonly MODULE_DIR="$DIR/src/module"
+readonly ASSET_DIR="$DIR/src/global/asset"
+readonly CONFIG_DIR="$HOME/.config"
+readonly ZDOTDIR_LINE='export ZDOTDIR="$HOME/.config/zsh"'
 
-info "Initializing dotfiles from $DOTFILES_DIR..."
+link() {
+  local source=$1 target=$2
 
+  if [[ -e $target && ! -L $target ]]; then
+    mv "$target" "$target.bak-$EPOCHSECONDS"
+    warning "Backed up existing $target"
+  fi
+
+  ln -sfn "$source" "$target"
+  info "Linking: ${source##*/} -> $target"
+}
+
+link_dirs() {
+  local dir
+  for dir in "$1"/*/; do
+    link "${dir%/}" "$CONFIG_DIR/$(basename "$dir")"
+  done
+}
+
+install_system_files() {
+  info "Installing system files..."
+  sudo install -D -m 644 -o root -g root \
+    "$DIR/src/global/etc/pam.d/login" /etc/pam.d/login
+}
+
+install_yay() {
+  command -v yay &> /dev/null && return
+
+  info "Installing yay..."
+  local tmp
+  tmp=$(mktemp -d)
+  git clone https://aur.archlinux.org/yay.git "$tmp/yay"
+  (cd "$tmp/yay" && makepkg -si)
+  rm -rf "$tmp"
+}
+
+install_packages() {
+  info "Installing packages..."
+  sudo pacman -S --needed - < "$GLOBAL_DIR/packages/pacman.txt"
+  install_yay
+  xargs -r -a "$GLOBAL_DIR/packages/aur.txt" yay -S --needed
+}
+
+install_bun_packages() {
+  info "Installing global bun packages..."
+  bun i -g oxlint oxfmt
+}
+
+configure_zsh() {
+  info "Configuring Zsh..."
+  grep -qxF "$ZDOTDIR_LINE" /etc/zsh/zshenv 2> /dev/null ||
+    echo "$ZDOTDIR_LINE" | sudo tee -a /etc/zsh/zshenv > /dev/null
+  mkdir -p "${XDG_STATE_HOME:-$HOME/.local/state}/zsh"
+}
+
+enable_units() {
+  local file=$1
+  shift
+  local -a units
+
+  mapfile -t units < <(grep -vE '^\s*(#|$)' "$file")
+  ((${#units[@]})) || return 0
+
+  "$@" enable --now "${units[@]}"
+}
+
+enable_services() {
+  info "Enabling services..."
+  enable_units "$GLOBAL_DIR/services/system.txt" sudo systemctl
+  enable_units "$GLOBAL_DIR/services/user.txt" systemctl --user
+}
+
+login_github() {
+  gh auth status &> /dev/null || gh auth login
+}
+
+info "Initializing dotfiles from $DIR..."
 mkdir -p "$CONFIG_DIR"
+link_dirs "$MODULE_DIR"
+link_dirs "$ASSET_DIR"
+[[ -d $ASSET_DIR/sound ]] && chmod +x "$ASSET_DIR"/sound/*
 
-for module in "$DOTFILES_DIR"/*; do
-  if [ -d "$module" ]; then
-    name=$(basename "$module")
-    target="$CONFIG_DIR/$name"
+install_packages
+install_system_files
+install_bun_packages
+configure_zsh
+enable_services
+login_github
 
-    if [[ " ${ETC_MODULES[*]} " =~ " ${name} " ]]; then
-      info "Linking root module: $name -> /etc/$name"
-      sudo mkdir -p "/etc/$name"
-
-      for file in "$module"/*; do
-        if [ -f "$file" ]; then
-          filename=$(basename "$file")
-          sudo ln -sf "$file" "/etc/$name/$filename"
-        fi
-      done
-
-      if [ "$name" = "keyd" ]; then
-        sudo keyd reload 2>/dev/null || true
-      fi
-
-    else
-      [ -L "$target" ] && rm "$target"
-      ln -s "$module" "$target"
-      info "Linking: $name -> $target"
-    fi
-  fi
-done
-
-success "All dotfiles have been linked successfully."
-
-# timedatectl set-ntp true
-
-info "Configuring Zsh..."
-
-# update /etc/zshenv to point to the new ZDOTDIR
-# echo 'export ZDOTDIR="$HOME/.config/zsh"' | sudo tee -a /etc/zsh/zshenv
-
-info "Installint aditional packages."
-
-# git clone https://aur.archlinux.org/yay.git
-# cd yay
-# makepkg -si
-# cd..
-
-# pacman -S git base-devel vlc noto-fonts noto-fonts-cjk noto-fonts-extra tf-nerd-fonts-symbols ttf-cascadia-mono-nerd rust imagemagick tree-sitter-cli hyprland github-cli nodejs kitty pipewire pipewire-pulse wireplumber pipewire-alsa brightnessctl playerctl neovide gnome-keyring libsecret rtkit neovim starship bun zsh zoxide bat fzf eza ttf-cascadia-code-nerd noto-fonts-emoji xorg-xcursorgen unzip firefox stylua uwsm libnewt quickshell bluez bluez-utils terraform wget lazygit
-# yay -S visual-studio-code-bin iris-autocomplete
-# bun i -g oxlint oxfmt
-# sudo ln -s ~/project/dotfiles/src/module/sddm/theme /usr/share/sddm/themes/theme
-
-# systemctl --user enable --now pipewire.socket
-# systemctl --user enable --now pipewire-pulse.socket
-# systemctl --user enable --now wireplumber.service
-# systemctl --user enable --now rtkit-daemon
-# systemctl enable --now bluetooth.service
-
-# Login with github is
-#
-# gh auth login
-#
-
-info "Setting up assets"
-
-for module in "$ASSET_DIR"/*; do
-  if [ -d "$module" ]; then
-    name=$(basename "$module")
-    target="$CONFIG_DIR/$name"
-
-    if [ "$name" = "sound" ]; then
-      chmod +x "$module"/*
-    fi
-
-    if [ -L "$target" ] || [ -e "$target" ]; then
-      rm -rf "$target"
-    fi
-
-    ln -s "$module" "$target"
-    info "Linking: $name -> $target"
-  fi
-done
+success "Post-install finished."
