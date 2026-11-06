@@ -1,0 +1,3 @@
+pipewire.socket
+pipewire-pulse.socket
+wireplumber.service
