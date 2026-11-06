@@ -4,6 +4,11 @@
     "streetsidesoftware.code-spell-checker",
     "EditorConfig.EditorConfig",
     "streetsidesoftware.code-spell-checker-spanish",
-    "redhat.vscode-yaml"
+    "redhat.vscode-yaml",
+    "theqtcompany.qt-qml",
+    "tamasfe.even-better-toml",
+    "JohnnyMorganz.stylua",
+    "mkhl.shfmt",
+    "timonwong.shellcheck"
   ]
 }
