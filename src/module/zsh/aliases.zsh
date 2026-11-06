@@ -1,14 +1,22 @@
+# File management aliases
 alias ls='eza --icons -a'
 alias ll='eza -lha --icons --git'
 alias tree='eza --tree --icons -a'
 
-alias update='source ~/.config/zsh/.zshrc'
+# Reload Zsh configuration
+alias reload='exec zsh'
 
+# Navigation aliases
 alias project='cd ~/project'
 alias config='cd ~/.config'
 alias dotfiles='cd ~/project/dotfiles'
 alias nvimConfig='cd ~/project/dotfiles/src/module/nvim'
 
+# Git aliases
+alias lg='lazygit'
+alias gst='git status'
+alias gds='git diff --staged'
+alias gsw='git switch'
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
@@ -19,19 +27,22 @@ alias gb='git branch'
 alias gi='git init'
 alias gcl='git clone'
 
-neovide() {
-  nohup neovide >/dev/null 2>&1 &!
+# Package management aliases
+alias up='yay -Syu'
+alias pacs='sudo pacman -S'
+alias pacr='sudo pacman -Rns'
+alias orphans='pacman -Qdtq'
+
+command -v bat >/dev/null && alias cat='bat'
+
+launch() {
+  whence -p "$1" >/dev/null || {
+    print -u2 "launch: $1 not found"
+    return 1
+  }
+  nohup "$@" >/dev/null 2>&1 &|
   exit
 }
 
-code() {
-  nohup code "${@:-.}" >/dev/null 2>&1 &!
-  exit
-}
-
-if command -v bat >/dev/null 2>&1; then
-  alias cat='bat'
-elif command -v batcat >/dev/null 2>&1; then
-  alias bat='batcat'
-  alias cat='batcat'
-fi
+neovide() { launch neovide "$@"; }
+code() { launch code "${@:-.}"; }
