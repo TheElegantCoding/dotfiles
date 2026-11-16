@@ -113,7 +113,7 @@ symbol = ''
 style = 'bold fg:#4ade80 bg:primary_950'
 version_format = 'v${major}.${minor}'
 format = '[ $symbol $version ]($style)'
-detect_extensions = [ ]
+detect_extensions = []
 
 [status]
 disabled = false
