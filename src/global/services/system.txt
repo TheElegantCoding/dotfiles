@@ -1,2 +1,3 @@
 bluetooth.service
 rtkit-daemon.service
+keyd.service
