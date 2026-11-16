@@ -1,10 +1,7 @@
 {
   "version": "0.2",
   "language": "en,es",
-  "dictionaries": [
-    "en",
-    "es-es"
-  ],
+  "dictionaries": ["en", "es-es"],
   "words": [
     "alsa",
     "alse",
@@ -46,10 +43,5 @@
     "wincmd",
     "zdotdir"
   ],
-  "ignorePaths": [
-    "node_modules/**",
-    ".git/**",
-    "dist/**",
-    "build/**"
-  ]
+  "ignorePaths": ["node_modules/**", ".git/**", "dist/**", "build/**"]
 }
