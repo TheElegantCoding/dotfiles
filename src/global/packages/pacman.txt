@@ -47,3 +47,4 @@ wireplumber
 xorg-xcursorgen
 zoxide
 zsh
+keyd
