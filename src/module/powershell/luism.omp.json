@@ -82,9 +82,7 @@
           "type": "exit",
           "style": "plain",
           "foreground": "#e0f8ff",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}#ef5350{{ end }}"
-          ],
+          "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
           "template": "\u276f{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
           "properties": {
             "always_enabled": true
