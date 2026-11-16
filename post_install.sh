@@ -10,6 +10,7 @@ readonly GLOBAL_DIR="$DIR/src/global"
 readonly MODULE_DIR="$DIR/src/module"
 readonly ASSET_DIR="$DIR/src/global/asset"
 readonly CONFIG_DIR="$HOME/.config"
+readonly ETC_DIR="$DIR/src/global/etc"
 readonly ZDOTDIR_LINE='export ZDOTDIR="$HOME/.config/zsh"'
 
 link() {
@@ -33,8 +34,11 @@ link_dirs() {
 
 install_system_files() {
   info "Installing system files..."
-  sudo install -D -m 644 -o root -g root \
-    "$DIR/src/global/etc/pam.d/login" /etc/pam.d/login
+  local file
+
+  while IFS= read -r -d '' file; do
+    sudo install -D -m 644 -o root -g root "$file" "/etc/${file#"$ETC_DIR"/}"
+  done < <(find "$ETC_DIR" -type f -print0)
 }
 
 install_yay() {
@@ -94,11 +98,11 @@ link_dirs "$MODULE_DIR"
 link_dirs "$ASSET_DIR"
 [[ -d $ASSET_DIR/sound ]] && chmod +x "$ASSET_DIR"/sound/*
 
-install_packages
+# install_packages
 install_system_files
-install_bun_packages
-configure_zsh
-enable_services
-login_github
+# install_bun_packages
+# configure_zsh
+# enable_services
+# login_github
 
 success "Post-install finished."
